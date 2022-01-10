@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      gunicorn -b 0.0.0.0:8000
+        --access-logfile -
+        --reload
+        "siapp.app:create_app()"
+    volumes:
+      - .:/siapp
+    ports:
+      - 8000:8000
+    environment:
+      - FLASK_APP=siapp/app.py
+      - FLASK_ENV=development
