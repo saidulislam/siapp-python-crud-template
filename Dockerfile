@@ -20,4 +20,6 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # run the server
+# --access-logfile - means guicorn will log everything to console
+# instead of a log file
 CMD gunicorn -b 0.0.0.0:8000 --access-logfile - "siapp.app:create_app()"

@@ -1,0 +1,1 @@
+from siapp.blueprints.page.views import page
