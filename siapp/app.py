@@ -1,6 +1,6 @@
 from flask import Flask
 
-from siapp.blueprints.page import page
+from siapp.blueprints.static_pages import page
 
 
 def create_app():
