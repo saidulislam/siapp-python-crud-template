@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-page = Blueprint('page', __name__, template_folder='templates')
+page = Blueprint('static_pages', __name__, template_folder='templates')
 
 
 @page.route('/')
