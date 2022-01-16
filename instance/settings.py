@@ -1,1 +1,1 @@
-HELLO = 'Hello Saidul!'
+DEBUG = False

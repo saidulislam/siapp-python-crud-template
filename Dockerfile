@@ -18,6 +18,10 @@ RUN pip install -r requirements.txt
 
 # add siapp
 COPY . .
+# before you add this in here
+# you have to run the following command locally
+# pip install --editable .
+RUN pip install --editable .
 
 # run the server
 # --access-logfile - means guicorn will log everything to console
