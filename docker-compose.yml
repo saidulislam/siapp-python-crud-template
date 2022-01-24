@@ -18,3 +18,23 @@ services:
     environment:
       - FLASK_APP=siapp/app.py
       - FLASK_ENV=development
+
+  redis:
+    image: 'redis:3.0-alpine'
+    command: redis-server --requirepass devpassword
+    volumes:
+      - 'redis:/var/lib/redis/data'
+    ports:
+      - '6379:6379'
+
+  celery:
+    build: .
+    command: celery -A siapp.blueprints.contact.tasks worker --loglevel=info
+    env_file:
+      - '.env'
+    volumes:
+      - '.:/siapp'
+
+volumes:
+  redis:
+  
