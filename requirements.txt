@@ -1,4 +1,3 @@
-click==8.0.3
 colorama==0.4.4
 Flask==2.0.2
 
@@ -16,4 +15,24 @@ pytest-cov==3.0.0
 flake8==4.0.1
 
 # CLI.
-Click
+Click==7.1.2
+
+# Data and workers.
+redis==3.5.3
+celery==5.1.2
+
+# Forms.
+Flask-WTF
+WTForms-Components
+
+# Even though we're
+# not using SQLAlchemy yet, the WTForms-Components library uses it and installs
+# a version of SQLAlchemy (1.4) that's brand new and has a ton of breaking changes.
+#
+# To fix that we need to explicitly lock down SQLAlchemy to an older version
+# that works with most libraries. That's what this line below is doing.
+SQLAlchemy
+
+# Extensions.
+flask-debugtoolbar
+Flask-Mail
