@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+{% import 'macros/form.html' as f with context %}
+
+{% block title %}Signup for email updates{% endblock %}
+{% block meta_description %}Email signups for updates{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 well">
+      {% call f.form_tag('signup.index') %}
+        <legend>Signup for our email updates</legend>
+
+        {% call f.form_group(form.first, css_class='margin-bottom',
+                             placeholder='First Name') %}
+        {% endcall %}
+
+        {% call f.form_group(form.last, css_class='margin-bottom',
+                             placeholder='Last Name') %}
+        {% endcall %}
+
+        {% call f.form_group(form.email, css_class='margin-bottom',
+                             placeholder='your@email.com') %}
+        {% endcall %}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      {% endcall %}
+    </div>
+  </div>
+{% endblock %}

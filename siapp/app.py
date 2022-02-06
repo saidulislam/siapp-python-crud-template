@@ -3,10 +3,12 @@ from celery import Celery
 
 from siapp.blueprints.static_pages import page
 from siapp.blueprints.contact import contact
+from siapp.blueprints.signup import signup
 from siapp.extensions import debug_toolbar, mail, csrf
 
 CELERY_TASK_LIST = [
     'siapp.blueprints.contact.tasks',
+    'siapp.blueprints.signup.tasks',
 ]
 
 
@@ -54,6 +56,7 @@ def create_app(settings_override=None):
     # register blueprints
     app.register_blueprint(page)
     app.register_blueprint(contact)
+    app.register_blueprint(signup)
     extensions(app)
     
     return app

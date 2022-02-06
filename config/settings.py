@@ -9,8 +9,8 @@ MAIL_SERVER = 'smtp.mailtrap.io'
 MAIL_PORT = 587
 MAIL_USE_TLS = True
 MAIL_USE_SSL = False
-MAIL_USERNAME = 'ff9f2a17770ca8'
-MAIL_PASSWORD = 'c94795d7a9b0b9'
+MAIL_USERNAME = 'asdfasdfasdfasdf'
+MAIL_PASSWORD = 'asdfasdfasdfasdf'
 
 # Celery.
 CELERY_BROKER_URL = 'redis://:devpassword@redis:6379/0'
