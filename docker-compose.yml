@@ -2,6 +2,23 @@ version: '3.8'
 
 services:
 
+  postgres:
+    image: 'postgres:9.5'
+    env_file:
+      - '.env'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    ports:
+      - '5432:5432'
+
+  redis:
+    image: 'redis:3.0-alpine'
+    command: redis-server --requirepass devpassword
+    volumes:
+      - 'redis:/var/lib/redis/data'
+    ports:
+      - '6379:6379'
+
   website:
     build:
       context: .
@@ -11,21 +28,12 @@ services:
         --access-logfile -
         --reload
         "siapp.app:create_app()"
+    env_file:
+      - '.env'
     volumes:
-      - .:/siapp
+      - '.:/siapp'
     ports:
-      - 8000:8000
-    environment:
-      - FLASK_APP=siapp/app.py
-      - FLASK_ENV=development
-
-  redis:
-    image: 'redis:3.0-alpine'
-    command: redis-server --requirepass devpassword
-    volumes:
-      - 'redis:/var/lib/redis/data'
-    ports:
-      - '6379:6379'
+      - '8000:8000'
 
   celery:
     build: .
@@ -36,5 +44,6 @@ services:
       - '.:/siapp'
 
 volumes:
+  postgres:
   redis:
   

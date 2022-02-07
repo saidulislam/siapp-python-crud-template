@@ -36,3 +36,4 @@ SQLAlchemy
 # Extensions.
 flask-debugtoolbar
 Flask-Mail
+Flask-Login
