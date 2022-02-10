@@ -1,1 +1,1 @@
-# (siapp) Flask Web App Template
+# (siapp) Flask Web App Template with Payment (stripe)
